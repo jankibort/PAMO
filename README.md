@@ -1,4 +1,5 @@
 # PAMO
-academic assignment's mobile app repo
 
-solutions author: Kibort Jan
+academic assignment's (mobile app repo)
+
+resolved by: Kibort Jan
