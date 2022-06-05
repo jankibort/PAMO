@@ -53,7 +53,7 @@ public class CannonView extends SurfaceView
 
    // constants for the Blocker
    public static final double BLOCKER_WIDTH_PERCENT = 1.0 / 40;
-   public static final double BLOCKER_LENGTH_PERCENT = 1.0 / 4;
+   public static final double BLOCKER_LENGTH_PERCENT = 1.0 / 8;
    public static final double BLOCKER_X_PERCENT = 1.0 / 2;
    public static final double BLOCKER_SPEED_PERCENT = 1.0 / 4;
 
@@ -66,7 +66,7 @@ public class CannonView extends SurfaceView
 
    // game objects
    private Cannon cannon;
-   private Blocker blocker;
+   private Blocker[] blocker = new Blocker[3];
    private ArrayList<Target> targets;
 
    // dimension variables
@@ -200,12 +200,14 @@ public class CannonView extends SurfaceView
       }
 
       // create a new Blocker
-      blocker = new Blocker(this, Color.BLACK, MISS_PENALTY,
-         (int) (BLOCKER_X_PERCENT * screenWidth),
-         (int) ((0.5 - BLOCKER_LENGTH_PERCENT / 2) * screenHeight),
-         (int) (BLOCKER_WIDTH_PERCENT * screenWidth),
-         (int) (BLOCKER_LENGTH_PERCENT * screenHeight),
-         (float) (BLOCKER_SPEED_PERCENT * screenHeight));
+      for(int i=0;i< blocker.length;i++) {
+         blocker[i] = new Blocker(this, Color.BLACK, MISS_PENALTY,
+                 (int) (BLOCKER_X_PERCENT * screenWidth),
+                 (int) ((0.5 - BLOCKER_LENGTH_PERCENT / 2) * screenHeight * i+1 /2 ),
+                 (int) (BLOCKER_WIDTH_PERCENT * screenWidth),
+                 (int) (BLOCKER_LENGTH_PERCENT * screenHeight),
+                 (float) (BLOCKER_SPEED_PERCENT * screenHeight));
+      }
 
       timeLeft = 120; // start the countdown at 10 seconds
 
@@ -229,7 +231,9 @@ public class CannonView extends SurfaceView
       if (cannon.getCannonball() != null)
          cannon.getCannonball().update(interval);
 
-      blocker.update(interval); // update the blocker's position
+      for(int i=0;i< blocker.length;i++) {
+         blocker[i].update(interval); // update the blocker's position
+      }
 
       for (GameElement target : targets)
          target.update(interval); // update the target's position
@@ -296,8 +300,9 @@ public class CannonView extends SurfaceView
          cannon.getCannonball().isOnScreen())
          cannon.getCannonball().draw(canvas);
 
-      blocker.draw(canvas); // draw the blocker
-
+      for(int i=0;i< blocker.length;i++) {
+         blocker[i].draw(canvas); // draw the blocker
+      }
       // draw all of the Targets
       for (GameElement target : targets)
          target.draw(canvas);
@@ -329,15 +334,17 @@ public class CannonView extends SurfaceView
       }
 
       // check if ball collides with blocker
-      if (cannon.getCannonball() != null &&
-         cannon.getCannonball().collidesWith(blocker)) {
-         blocker.playSound(); // play Blocker hit sound
+      for(int i=0;i< blocker.length;i++) {
+         if (cannon.getCannonball() != null &&
+                 cannon.getCannonball().collidesWith(blocker[i])) {
+            blocker[i].playSound(); // play Blocker hit sound
 
-         // reverse ball direction
-         cannon.getCannonball().reverseVelocityX();
+            // reverse ball direction
+            cannon.getCannonball().reverseVelocityX();
 
-         // deduct blocker's miss penalty from remaining time
-         timeLeft -= blocker.getMissPenalty();
+            // deduct blocker's miss penalty from remaining time
+            timeLeft -= blocker[i].getMissPenalty();
+         }
       }
    }
 
