@@ -14,6 +14,22 @@
     <string name="age">Age</string>
     <string name="quiz">Quiz</string>
     <string name="game">CannonBall</string>
+    <string name="question1">Jedzenie fastfoodów i przetworzonego jedzenia jest zdrowe.</string>
+    <string name="question2">Zjedzenie jednego dużego posiłku jest zdrowsze niż kilku mniejszych w ciągu dnia.</string>
+    <string name="question3">Ile powinno się pić litrów wody dziennie?.</string>
+    <string name="question4">Który z wymienionych produktów zawiera najwięcej witaminy C na 100g produktu?</string>
+    <string name="question5">Stosując dietę ubogą w tłuszcze narażamy się na niedobory witamin. Jakich?</string>
+    <string name="question6">Czy jedzenie kurzych jaj jest zdrowe?</string>
+    <string name="truth">Prawda</string>
+    <string name="not_truth">Fałsz</string>
+    <string name="q3_truth">Około 2l</string>
+    <string name="q3_not_truth">Wcale, lepsze są napoje z dużą zawartością cukru</string>
+    <string name="q4_truth">Czarna porzeczka</string>
+    <string name="q4_not_truth">Chrzan</string>
+    <string name="q5_truth">A,D,E,K</string>
+    <string name="q5_not_truth">B2,B12,A,K</string>
+    <string name="q6_truth">Tak, ale tylko w odpowiednich ilościach</string>
+    <string name="q6_not_truth">Tak</string>
 
     <string name="enter_amount">Enter Amount</string>
     <string name="tip_percentage">15%</string>
