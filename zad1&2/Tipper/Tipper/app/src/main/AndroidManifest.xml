@@ -18,6 +18,12 @@
         <activity
             android:name=".activities.Bmi_Activity"
             android:exported="false" />
+        <activity
+            android:name=".activities.QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CannonActivity"
+            android:exported="false" />
         <activity android:name=".activities.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

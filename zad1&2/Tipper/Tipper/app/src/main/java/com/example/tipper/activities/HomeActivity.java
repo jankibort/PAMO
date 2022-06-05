@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.tipper.activities.QuizActivity;
 import com.example.tipper.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,10 +21,14 @@ public class HomeActivity extends AppCompatActivity {
         Button bmiButton;
         Button kcalButton;
         Button recipesButton;
+        Button quizButton;
+        Button gameButton;
 
         bmiButton = (Button) findViewById(R.id.bmiButton);
         kcalButton = (Button) findViewById(R.id.kcalButton);
         recipesButton = (Button) findViewById(R.id.recipesButton);
+        quizButton = (Button) findViewById(R.id.quizButton);
+        gameButton = (Button) findViewById(R.id.gameButton);
 
         bmiButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +51,19 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        quizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchQuizActivity();
+            }
+        });
+
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchGameActivity();
+            }
+        });
     }
 
     private void launchRecipeActivity(){
@@ -60,6 +78,16 @@ public class HomeActivity extends AppCompatActivity {
 
     private void launchBMIActivity(){
         Intent intent = new Intent(this, Bmi_Activity.class);
+        startActivity(intent);
+    }
+
+    private void launchQuizActivity(){
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
+
+    private void launchGameActivity(){
+        Intent intent = new Intent(this, CannonActivity.class);
         startActivity(intent);
     }
 }

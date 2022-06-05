@@ -47,4 +47,26 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
+
+    <Button
+        android:id="@+id/quizButton"
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/quiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kcalButton" />
+
+    <Button
+        android:id="@+id/gameButton"
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
